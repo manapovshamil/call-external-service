@@ -1,0 +1,16 @@
+server:
+  port: 8082
+
+integration:
+  url: https://test.paydala.kz/external/extended-cert
+  trust-store-path: C:\Users\admin\Desktop\call-external-service\keystore\truststore
+  trust-store-password: changeit
+  key-store-path: C:\Users\admin\Desktop\call-external-service\keystore\point_5378.p12
+  key-store-password: YltNaFORd9
+  key-password: YltNaFORd9
+
+credentials:
+  point: 5378
+
+
+
