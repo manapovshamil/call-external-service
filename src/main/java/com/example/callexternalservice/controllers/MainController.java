@@ -3,6 +3,9 @@ package com.example.callexternalservice.controllers;
 import com.example.callexternalservice.requests.CheckRequest;
 import com.example.callexternalservice.requests.PayRequest;
 import com.example.callexternalservice.requests.StatusRequest;
+import com.example.callexternalservice.responses.CheckResponse;
+import com.example.callexternalservice.responses.PayResponse;
+import com.example.callexternalservice.responses.StatusResponse;
 import com.example.callexternalservice.service.IntegrationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,20 +20,20 @@ public class MainController {
     IntegrationServiceImpl integrationService;
 
     @PostMapping("/check")
-    public ResponseEntity<String> check(@RequestBody CheckRequest checkRequest){
-        String result = integrationService.sendCheckRequest(checkRequest);
+    public ResponseEntity<CheckResponse> check(@RequestBody CheckRequest checkRequest)  {
+        CheckResponse result = integrationService.sendCheckRequest(checkRequest);
         return ResponseEntity.ok(result);
     }
 
     @PostMapping("/pay")
-    public ResponseEntity<String> pay(@RequestBody PayRequest payRequest) {
-        String result = integrationService.sendPayRequest(payRequest);
+    public ResponseEntity<PayResponse> pay(@RequestBody PayRequest payRequest) {
+        PayResponse result = integrationService.sendPayRequest(payRequest);
         return ResponseEntity.ok(result);
     }
 
     @PostMapping("/status")
-    public ResponseEntity<String> getStatus(@RequestBody StatusRequest statusRequest){
-        String result = integrationService.sendStatusRequest(statusRequest);
+    public ResponseEntity<StatusResponse> getStatus(@RequestBody StatusRequest statusRequest){
+        StatusResponse result = integrationService.sendStatusRequest(statusRequest);
         return ResponseEntity.ok(result);
     }
 }
